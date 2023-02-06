@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li img{
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        li{
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul></ul>
+    <!-- <ul>
+        <li>
+            <img src="https://pic.maizuo.com/usr/movie/7a61b5f8e702ce6c705a9b51db7a62e7.jpg?x-oss-process=image/quality,Q_70" alt="" class="movie">
+            <h3>电影</h3>
+            <p>信息</p>
+        </li>
+    </ul> -->
+    <script>
+        var filmList = [
+            {
+                url:"https://pic.maizuo.com/usr/movie/7a61b5f8e702ce6c705a9b51db7a62e7.jpg?x-oss-process=image/quality,Q_70",
+                title:"电影",
+                grade:"1.2",
+
+            },
+            { url:"https://pic.maizuo.com/usr/movie/7a61b5f8e702ce6c705a9b51db7a62e7.jpg?x-oss-process=image/quality,Q_70",
+                title:"电影",
+                grade:"1.2",
+
+            },
+            { url:"https://pic.maizuo.com/usr/movie/7a61b5f8e702ce6c705a9b51db7a62e7.jpg?x-oss-process=image/quality,Q_70",
+                title:"电影",
+                grade:"1.2",
+
+            }
+        ]
+        var flimItems = filmList.map(function(item){
+            return `<li>
+            <img src="${item.url}" alt="" >
+            <h3>${item.title}</h3>
+            <p>${item.grade}</p>
+        </li> `
+        })
+        console.log(flimItems.join(""));
+
+        var oul = document.querySelector("ul");
+        oul.innerHTML = flimItems.join("");
+    </script>
+</body>
+</html>

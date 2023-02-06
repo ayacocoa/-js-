@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //浏览器宽高
+        console.log(window.innerHeight,innerHeight)
+        console.log(window.innerWidth,innerWidth)
+        //加载后执行
+        window.onload=function(){
+            console.log("加载完成")
+        }
+        //检测屏幕状态
+        window.onresize = function(){
+            console.log(onresize)
+        }
+        //检测滚动条滚动
+        window.onscroll = function(){
+            console.log(scoll)
+        }
+        //滚动距离
+        document.documentElement.scrollTop
+        document.documentElement.scrollLeft
+        //兼容性滚动
+        document.body.scrollTop
+        //
+
+        //本地永久存储 增 只能增加字符串，并强制转化为字符串
+        localStorage.setItem('name',"ker")
+        // 取
+        localStorage.getItem("name")
+        // 删
+        localStorage.removeItem("name")
+        // 清空
+        localStorage.clear()
+
+        //会话存储，关闭页面会丢失
+        sessionStorage.setItem()
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

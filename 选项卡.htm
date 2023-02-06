@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .header{
+            display: flex;
+            width: 500px;
+        }
+        .header li{
+            flex: 1;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .box{
+            position: relative;
+        }
+        .box li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 500px;
+            height: 200px;
+            background: blue;
+            display: none;
+        }
+        .box .active{
+            display: block;
+        }
+        .header .active{
+            background: blue;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="header">
+        <li class="active" id="item1">1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <ul class="box">
+        <li class="active">1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <script>
+        var oHeaderItems = document.querySelectorAll(".header li");
+        var oBoxItems = document.querySelectorAll(".box li");
+
+        for(var i=0;i<oHeaderItems.length;i++){
+            oHeaderItems[i].dataset.index = i;
+            oHeaderItems[i].onclick = handler;
+        }
+
+        function handler(){
+            var index = this.dataset.index;
+            for(var i = 0; i<oHeaderItems.length;i++){
+                oHeaderItems[i].classList.remove("active");
+                oBoxItems[i].classList.remove("active")
+            }
+            oHeaderItems[index].classList.add("active");
+            oBoxItems[index].classList.add("active")
+        }
+    </script>
+</body>
+</html>

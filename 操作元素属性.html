@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" data-lll = "222" style="color: black; width: 80px;"> hello </div>
+    <input type="text" value = "hello" id="username">
+    <input type="checkbox" checked >
+    <script>
+        /*
+        自定义属性
+        */
+        box.innerHTML = "2222"; 
+        //增加自定义属性
+        box.setAttribute("lll","zzzz")
+        // data-****  .dataset获取
+        console.log(box.dataset)
+        //获取内部样式，可改
+        console.log(box.style.color)
+        //获取全部样式，不能写
+        var obox = document.getElementById("box");
+        console.log(window.getComputedStyle(obox));
+        // getComputedstyle 标准
+        //操作元素类名
+        box.classname
+        //classlist属性
+        classlist.add // 增加
+        remove // 删除
+        //切换 toggle
+        // toggle(classname)  有则删除，无则增加
+
+    </script>
+</html>
