@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <h1> </h1>
+        <ul></ul>
+    </div>
+    <div class="box2">
+        <h1> </h1>
+        <ul></ul>
+    </div>
+    <script>
+        var data = {
+            title: "体育",
+            list: ["体育1", "体育2", "体育3"]
+        }
+        var data2 = {
+            title: "体育",
+            list: ["体育1", "体育2", "体育3"]
+        }
+        function CreateList(select, title, list) {
+            this.element = document.querySelector(select);
+            this.title = title;
+            this.list = list;
+            this.render = function () {
+                //渲染页面
+                var h1 = this.element.querySelector("h1")
+                var ul = this.element.querySelector("ul")
+                h1.innerHTML = this.title
+                ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+
+            }
+        }
+        var obj1 = new CreateList(".box1", data.title, data.list)
+        obj1.render();
+
+        var obj2 = new CreateList(".box2", data2.title, data2.list)
+        obj2.render();
+    </script>
+</body>
+
+</html>
