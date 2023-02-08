@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .header {
+            display: flex;
+            width: 500px;
+        }
+
+        .header li {
+            flex: 1;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .box {
+            position: relative;
+            height: 200px;
+        }
+
+        .box li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 500px;
+            height: 200px;
+            background: blue;
+            display: none;
+        }
+
+        .box .active {
+            display: block;
+        }
+
+        .header .active {
+            background: blue;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <ul class="header">
+            <li class="active" id="item">1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+        <ul class="box">
+            <li class="active">1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+    </div>
+    <div class="container2">
+        <ul class="header">
+            <li class="active" id="item">1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+        <ul class="box">
+            <li class="active">1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+    </div>
+    <script>
+        var oHeaderItems = document.querySelectorAll(".header li");
+        var oBoxItems = document.querySelectorAll(".box li");
+
+        // //
+
+        function Tabs(select, type) {
+            var container = document.querySelector(select);
+            this.oHeaderItems = container.querySelectorAll(".header li");
+            this.oBoxItems = container.querySelectorAll(".box li");
+            // console.log(this.oHeaderItems, this.oBoxItems)
+            this.change(type);
+
+        }
+        Tabs.prototype.change = function (type) {
+
+            for (let i = 0; i < this.oHeaderItems.length; i++) {
+                this.oHeaderItems[i].addEventListener(type, () => {
+                    var index = i;
+                    for (var m = 0; m < this.oHeaderItems.length; m++) {
+                        this.oHeaderItems[m].classList.remove("active");
+                        this.oBoxItems[m].classList.remove("active")
+                    }
+                    this.oHeaderItems[index].classList.add("active");
+                    this.oBoxItems[index].classList.add("active")
+                })
+            }
+        }
+        var tab = new Tabs(".container1", "click")
+        // tab.change();
+        var tab2 = new Tabs(".container2", "mouseover")
+        // tab2.change();
+    </script>
+</body>
+
+</html>

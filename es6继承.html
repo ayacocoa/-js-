@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // class Preson {
+        //     constructor(name, age) {
+        //         this.name = name
+        //         this.age = age
+        //     }
+        //     say() {
+        //         console.log(this.name, "hello")
+        //     }
+        // }
+        // //子类
+        // //extends 原型继承
+        // class Student extends Preson {
+        //     constructor(name, age, grade) {
+        //         super(name, age)
+        //         this.grade = grade
+        //     }
+        //     // 重名覆盖
+        //     say() {
+        //         console.log(this.name, "hello")
+        //     }
+        // }
+        // var obj = new Student()
+    </script>
+    <div class="box1">
+        <h1> </h1>
+        <img src="" alt="" width="200px">
+        <ul></ul>
+    </div>
+    <div class="box2">
+        <h1> </h1>
+        <img src="" alt="" width="200px">
+        <ul></ul>
+    </div>
+    <script>
+        var data = {
+            title: "体育",
+            url: "https://img2.baidu.com/it/u=1070198447,2860574471&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+            list: ["体育1", "体育2", "体育3"]
+        }
+        var data2 = {
+            title: "综艺",
+            url: "https://pic.maizuo.com/usr/movie/228a4e54fecfdb1c8…83ed28f947d6.jpg?x-oss-process=image/quality,Q_70",
+            list: ["综艺1", "综艺2", "综艺3"]
+        }
+
+        class CreateList {
+            constructor(select, data = {}) {
+                this.element = document.querySelector(select);
+                this.title = data.title;
+                this.list = data.list;
+            }
+
+            render() {
+                var h1 = this.element.querySelector("h1")
+                var ul = this.element.querySelector("ul")
+
+                h1.innerHTML = this.title
+                ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+            }
+        }
+
+        // this.render = function () {
+        //     //渲染页面
+        //     var h1 = this.element.querySelector("h1")
+        //     var ul = this.element.querySelector("ul")
+        //     h1.innerHTML = this.title
+        //     ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+
+        // }
+        //原型写法
+        class CreateImgList extends CreateList {
+            constructor(select, data) {
+                super(select, data)
+                this.imgUrl = data.url;
+            }
+
+            render() {
+                super.render()
+                var img = this.element.querySelector("img")
+                img.src = this.imgUrl
+            }
+        }
+
+        var obj1 = new CreateImgList(".box1", data)
+        obj1.render();
+
+
+            //对象._proto_ ===面向对象的原型 === 构造函数.prototype
+    </script>
+</body>
+
+</html>

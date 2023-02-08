@@ -33,27 +33,38 @@
             list: ["体育1", "体育2", "体育3"]
         }
         var data2 = {
-            title: "体育",
-            list: ["体育1", "体育2", "体育3"]
+            title: "综艺",
+            list: ["综艺1", "综艺2", "综艺3"]
         }
         function CreateList(select, title, list) {
             this.element = document.querySelector(select);
             this.title = title;
             this.list = list;
-            this.render = function () {
-                //渲染页面
-                var h1 = this.element.querySelector("h1")
-                var ul = this.element.querySelector("ul")
-                h1.innerHTML = this.title
-                ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+            // this.render = function () {
+            //     //渲染页面
+            //     var h1 = this.element.querySelector("h1")
+            //     var ul = this.element.querySelector("ul")
+            //     h1.innerHTML = this.title
+            //     ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
 
-            }
+            // }
         }
+        //原型写法
+        CreateList.prototype.render = function () {
+            //渲染页面
+            var h1 = this.element.querySelector("h1")
+            var ul = this.element.querySelector("ul")
+            h1.innerHTML = this.title
+            ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+        }
+
         var obj1 = new CreateList(".box1", data.title, data.list)
         obj1.render();
 
         var obj2 = new CreateList(".box2", data2.title, data2.list)
         obj2.render();
+
+        //对象._proto_ ===面向对象的原型 === 构造函数.prototype
     </script>
 </body>
 
